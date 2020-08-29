@@ -1,0 +1,190 @@
+@media (max-width:992px) {
+
+    .main-header {
+        height: 45px;
+        display: flex;
+        align-items: center;
+    }
+
+    .title-with-image-title h1, .top-news-with-title h1,
+    .detail-wrapper h1 {
+
+        font-size: 30px;
+    }
+
+    .list-title-wrapp h2 {
+
+        font-size: 20px;
+    }
+
+    .small-vid-wrapper {
+        display: flex;
+    }
+
+    #main-nav {
+
+        position: fixed;
+        top: 0;
+        left: -285px;
+        width: 285px;
+        height: 100%;
+        background: #fff;
+        z-index: 6;
+        transition: 500ms ease all;
+        overflow: scroll;
+    }
+
+    #main-nav li {
+
+        display: block;
+        width: 100%;
+    }
+
+    #main-nav li a {
+
+        color: #424242;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .top-menu-bar1,
+    .top-menu-bar {
+
+        display: block;
+    }
+
+    body.overlay {
+        overflow: hidden;
+    }
+    .sub-menu {
+
+        position: static;
+        transition: inherit;
+        transform: inherit;
+        display: none;
+    }
+
+    .top-menu-bar.active {
+
+        display: none;
+    }
+
+    
+
+  
+}
+
+@media (max-width:767px) {
+
+    .top-header {
+
+        height: 206px;
+    }
+
+    .logo img {
+        height: 80px;
+        width: auto;
+        max-width: inherit;
+    }
+
+    .detail-wrapper h1 {
+        font-size: 25px;
+        line-height: 43px;
+        text-align: left;
+    }
+
+    .header-ad {
+        padding: 0;
+        margin-bottom: 10px;
+    }
+
+    .header-base {
+
+        height: 251px;
+    }
+
+    .top-news-with-image-wrapp,
+    .top-news-with-title {
+
+        padding: 15px 0;
+    }
+}
+
+
+@media (max-width:600px) {
+
+    .list-wrapper {
+
+        flex-direction: column;
+    }
+
+    .list-content,
+    a.list-image {
+
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .logo img {
+        height: auto;
+        width: auto;
+        max-width: 100%;
+    }
+
+    a.epaper-icon img {
+        height: 50px;
+        width: auto;
+    }
+
+    .top-header {
+        height: 176px;
+    }
+
+    .header-base {
+        height: 221px;
+    }
+}
+
+@media (max-width:480px) {
+
+    .top-header {
+        height: 150px;
+    }
+
+    .header-base {
+        height: 195px;
+    }
+
+    .date-share-wrapp {
+        display: flex;
+        align-items: inherit;
+        flex-direction: column;
+    }
+
+    span.date {
+
+        margin-bottom: 15px;
+    }
+
+    .shares {
+
+        display: flex;
+        align-items: center;
+    }
+
+    .shares li {
+
+        margin: 0 5px;
+    }
+}
+
+
+@media (max-width:360px) {
+
+    .top-header {
+        height: 118px;
+    }
+
+    .header-base {
+        height: 163px;
+    }
+}
