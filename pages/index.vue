@@ -46,14 +46,13 @@
             v-for="samajPost in getTwoSamajPosts"
             :key="samajPost.id"
           >
-            <a href="#" class="samachar-wrapper all-news-image">
+            <nuxt-link :to="`/post/${samajPost.slug}`" class="samachar-wrapper all-news-image">
               <img :src="`http://localhost:8000/images/medium/${samajPost.image}`" alt="samachar" />
               <div class="title-medium samachar-title">
                 <h2>{{ samajPost.title }}</h2>
-                <div class="date_loader" v-if="dateLoader"></div>
-                <span class="date" v-else>{{samajPost.created_at}}</span>
+                <span class="date">{{samajPost.created_at}}</span>
               </div>
-            </a>
+            </nuxt-link>
           </div>
         </div>
 
@@ -64,15 +63,14 @@
             :key="samaj2.id"
           >
             <div class="samachar-small-news">
-              <a href="#" class="all-news-image">
+              <nuxt-link :to="`/post/${samaj2.slug}`" class="all-news-image">
                 <img :src="`http://localhost:8000/images/medium/${samaj2.image}`" alt="samachar" />
-              </a>
+              </nuxt-link>
               <div class="title-medium samachar-small-title">
-                <a href="#">
+                <nuxt-link :to="`/post/${samaj2.slug}`">
                   <h2>{{ samaj2.title }}</h2>
-                </a>
-                <div class="date_loader" v-if="dateLoader"></div>
-                <span class="date" v-else>{{samaj2.created_at}}</span>
+                </nuxt-link>
+                <span class="date">{{samaj2.created_at}}</span>
               </div>
             </div>
           </div>
@@ -97,6 +95,7 @@
 
 <script>
 import axios from "@/axios.settings.js";
+import NepaliDate from "nepali-date-converter";
 
 export default {
   data() {
@@ -129,13 +128,8 @@ export default {
         this.samaj &&
         this.samajPosts &&
         this.samajPosts.slice(0, 2).map(post => {
-          axios
-            .get(`/date/${post.created_at}`)
-            .then(res => {
-              this.dateLoader = false;
-              return (post.created_at = res.data);
-            })
-            .catch(err => console.log(err));
+          let a = new NepaliDate(post.created_at);
+          post.created_at = a.format("ddd DD, MMMM YYYY", "np");
           return post;
         })
       );
@@ -145,13 +139,8 @@ export default {
         this.samaj &&
         this.samajPosts &&
         this.samajPosts.slice(2, 6).map(post => {
-          axios
-            .get(`/date/${post.created_at}`)
-            .then(res => {
-              this.dateLoader = false;
-              return (post.created_at = res.data);
-            })
-            .catch(err => console.log(err));
+          let a = new NepaliDate(post.created_at);
+          post.created_at = a.format("ddd DD, MMMM YYYY", "np");
           return post;
         })
       );
