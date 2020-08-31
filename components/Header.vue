@@ -40,25 +40,25 @@
                 <nuxt-link to="/">गृहपृष्‍ठ</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/news">समाचार</nuxt-link>
+                <nuxt-link to="/samaj">समाज</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/news">बिजनेस/व्यवसाय</nuxt-link>
+                <nuxt-link to="/politics">राजनीति</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/news">बिचार/कुराकानी</nuxt-link>
+                <nuxt-link to="/economics">अर्थ</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/news">कला / मनोरञ्जन</nuxt-link>
+                <nuxt-link to="/thoughts">विचार</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/news">खेलकुद</nuxt-link>
+                <nuxt-link to="/world">विश्व</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/news">शिक्षा</nuxt-link>
+                <nuxt-link to="/prabhas">प्रवास</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/news">स्वास्थ्य</nuxt-link>
+                <nuxt-link to="/tourism">पर्यटन</nuxt-link>
               </li>
               <li>
                 <nuxt-link to="#">
@@ -67,7 +67,7 @@
                 </nuxt-link>
                 <ul class="sub-menu">
                   <li>
-                    <nuxt-link to="/news">खेलकुद</nuxt-link>
+                    <nuxt-link to="/education">शिक्षा</nuxt-link>
                   </li>
                 </ul>
               </li>

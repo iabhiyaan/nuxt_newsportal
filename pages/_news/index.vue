@@ -1,77 +1,27 @@
 <template>
   <section class="list-page all-sec-padding">
     <div class="container">
-      <nuxt-link to="#" class="long-ad inner-ad">
-        <img src="~/assets/images/OK_Desktop.gif" alt="ad" />
-      </nuxt-link>
-    </div>
-    <div class="container">
       <div class="title-wrapper list-title">
-        <h2>समाचार</h2>
+        <div class="small__loader" v-if="isLoading"></div>
+        <h2 v-else>{{category && category.title}}</h2>
       </div>
       <div class="row">
-        <div class="col-lg-9 col-md-9 col-12">
-          <div class="list-wrapper">
-            <nuxt-link to="detail.php" class="list-image all-news-image">
-              <img src="~/assets/images/Sevilla-wins-Europa-League-2.jpg" alt="list-image" />
+        <div class="col-lg-9 col-md-9 col-12" v-if="isLoading">
+          <div class="loading w-100"></div>
+          <div class="loading w-100"></div>
+          <div class="loading w-100"></div>
+        </div>
+        <div class="col-lg-9 col-md-9 col-12" v-else>
+          <div class="list-wrapper" v-for="post in getPosts" :key="post.id">
+            <nuxt-link :to="`/post/${post.slug}`" class="list-image all-news-image">
+              <img :src="`http://localhost:8000/images/main/${post.image}`" />
             </nuxt-link>
             <div class="list-content">
-              <nuxt-link to="detail.php" class="list-title-wrapp samachar-small-title">
-                <h2>एप्पलले रच्यो इतिहास, बन्यो २ ट्रिलियन डलरको पहिलो कम्पनी</h2>
+              <nuxt-link :to="`/post/${post.slug}`" class="list-title-wrapp samachar-small-title">
+                <h2>{{post.title}}</h2>
               </nuxt-link>
-              <span class="date">भदौ ७, २०७७</span>
-              <p>
-                ऐश्वर्या केसीलाई सानैदेखि कम्प्युटर मन पर्थ्यो। चलाउन नआए पनि अनेकौं किताब हेर्दै सिक्न खोज्थिन्।
-                कक्षा ६ मा स्कुलले नै कम्प्युटर विषय पढाउन थालेपछि उनलाई यसबारे झनै चासो बढ्न थाल्यो। बिस्तारै उनको रूचि कम्प्युटर गेमिङतिर मोडियो। गेमका लागि कोडहरू कसरी प्रयोग गर्ने भनेर सिक्दै गइन्। यसरी गेमिङ हुँदै कम्प्युटर कोडिङमा लागेकी उनी अहिले एक 'ह्याकर' हुन्।
-              </p>
-            </div>
-          </div>
-          <div class="list-wrapper">
-            <nuxt-link to="detail.php" class="list-image all-news-image">
-              <img src="~/assets/images/kp-oli-1.jpg" alt="list-image" />
-            </nuxt-link>
-            <div class="list-content">
-              <nuxt-link to="detail.php" class="list-title-wrapp samachar-small-title">
-                <h2>एप्पलले रच्यो इतिहास, बन्यो २ ट्रिलियन डलरको पहिलो कम्पनी</h2>
-              </nuxt-link>
-              <span class="date">भदौ ७, २०७७</span>
-              <p>
-                ऐश्वर्या केसीलाई सानैदेखि कम्प्युटर मन पर्थ्यो। चलाउन नआए पनि अनेकौं किताब हेर्दै सिक्न खोज्थिन्।
-                कक्षा ६ मा स्कुलले नै कम्प्युटर विषय पढाउन थालेपछि उनलाई यसबारे झनै चासो बढ्न थाल्यो। बिस्तारै उनको रूचि कम्प्युटर गेमिङतिर मोडियो। गेमका लागि कोडहरू कसरी प्रयोग गर्ने भनेर सिक्दै गइन्। यसरी गेमिङ हुँदै कम्प्युटर कोडिङमा लागेकी उनी अहिले एक 'ह्याकर' हुन्।
-              </p>
-            </div>
-          </div>
-          <div class="list-wrapper">
-            <nuxt-link to="detail.php" class="list-image all-news-image">
-              <img
-                src="~/assets/images/Top-10-Highest-Paid-Item-Girls-of-Bollywood-1.jpg"
-                alt="list-image"
-              />
-            </nuxt-link>
-            <div class="list-content">
-              <nuxt-link to="detail.php" class="list-title-wrapp samachar-small-title">
-                <h2>एप्पलले रच्यो इतिहास, बन्यो २ ट्रिलियन डलरको पहिलो कम्पनी</h2>
-              </nuxt-link>
-              <span class="date">भदौ ७, २०७७</span>
-              <p>
-                ऐश्वर्या केसीलाई सानैदेखि कम्प्युटर मन पर्थ्यो। चलाउन नआए पनि अनेकौं किताब हेर्दै सिक्न खोज्थिन्।
-                कक्षा ६ मा स्कुलले नै कम्प्युटर विषय पढाउन थालेपछि उनलाई यसबारे झनै चासो बढ्न थाल्यो। बिस्तारै उनको रूचि कम्प्युटर गेमिङतिर मोडियो। गेमका लागि कोडहरू कसरी प्रयोग गर्ने भनेर सिक्दै गइन्। यसरी गेमिङ हुँदै कम्प्युटर कोडिङमा लागेकी उनी अहिले एक 'ह्याकर' हुन्।
-              </p>
-            </div>
-          </div>
-          <div class="list-wrapper">
-            <nuxt-link to="detail.php" class="list-image all-news-image">
-              <img src="~/assets/images/share_market_skoa3RAFvX.jpg" alt="list-image" />
-            </nuxt-link>
-            <div class="list-content">
-              <nuxt-link to="detail.php" class="list-title-wrapp samachar-small-title">
-                <h2>एप्पलले रच्यो इतिहास, बन्यो २ ट्रिलियन डलरको पहिलो कम्पनी</h2>
-              </nuxt-link>
-              <span class="date">भदौ ७, २०७७</span>
-              <p>
-                ऐश्वर्या केसीलाई सानैदेखि कम्प्युटर मन पर्थ्यो। चलाउन नआए पनि अनेकौं किताब हेर्दै सिक्न खोज्थिन्।
-                कक्षा ६ मा स्कुलले नै कम्प्युटर विषय पढाउन थालेपछि उनलाई यसबारे झनै चासो बढ्न थाल्यो। बिस्तारै उनको रूचि कम्प्युटर गेमिङतिर मोडियो। गेमका लागि कोडहरू कसरी प्रयोग गर्ने भनेर सिक्दै गइन्। यसरी गेमिङ हुँदै कम्प्युटर कोडिङमा लागेकी उनी अहिले एक 'ह्याकर' हुन्।
-              </p>
+              <span class="date">{{post.created_at}}</span>
+              <p>{{post.short_description}}</p>
             </div>
           </div>
         </div>
@@ -98,8 +48,64 @@
 </template>
 
 <script>
-export default {};
+import axios from "@/axios.settings.js";
+import NepaliDate from "nepali-date-converter";
+export default {
+  data() {
+    return {
+      posts: null,
+      category: null,
+      isLoading: true
+    };
+  },
+  created() {
+    this.getData();
+  },
+  methods: {
+    getData() {
+      axios
+        .get(`/${this.$route.params.news}`)
+        .then(({ data }) => {
+          this.category = data.category;
+          this.posts = data.data;
+          this.isLoading = false;
+        })
+        .catch(err => console.log(err));
+    }
+  },
+  computed: {
+    getPosts() {
+      return (
+        this.posts &&
+        this.posts.map(post => {
+          let a = new NepaliDate(post.created_at);
+          post.created_at = a.format("ddd DD, MMMM YYYY", "np");
+          return post;
+        })
+      );
+    }
+  },
+  head() {
+    const title = this.category && this.category.title;
+    return {
+      title: title
+    };
+  }
+};
 </script>
 
 <style>
+.loading {
+  height: 200px;
+  width: 100%;
+  background: #cccccc7a;
+  margin-bottom: 30px;
+}
+
+.small__loader {
+  width: 60px;
+  height: 40px;
+  font-weight: 600;
+  background: #cccccc7a;
+}
 </style>
