@@ -1,9 +1,6 @@
 <template>
   <section class="detail-page all-sec-padding">
     <div class="container">
-      <a href="#" class="long-ad inner-ad">
-        <img src="~/assets/images/OK_Desktop.gif" alt="ad" />
-      </a>
       <div class="loader" v-if="isLoading"></div>
       <div class="detail-wrapper" v-else>
         <h1>{{ getProcessDetail && getProcessDetail.title }}</h1>
@@ -17,28 +14,7 @@
         <div class="date-share-wrapp">
           <span class="date">{{ getProcessDetail.created_at }}</span>
         </div>
-        <div class="row detail-ad">
-          <div class="col-lg-3 col-md-3 col-6">
-            <a href="#" class="small-ad">
-              <img src="~/assets/images/mahindra-300.gif" alt="ad" />
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-3 col-6">
-            <a href="#" class="small-ad">
-              <img src="~/assets/images/hero-ads.jpg" alt="ad" />
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-3 col-6">
-            <a href="#" class="small-ad">
-              <img src="~/assets/images/ime-super-man_300x150.gif" alt="ad" />
-            </a>
-          </div>
-          <div class="col-lg-3 col-md-3 col-6">
-            <a href="#" class="small-ad">
-              <img src="~/assets/images/263-x-142.gif" alt="ad" />
-            </a>
-          </div>
-        </div>
+
         <div class="detail-content">
           <div v-html="getProcessDetail.description"></div>
         </div>
@@ -58,7 +34,7 @@ export default {
       dateLoader: true
     };
   },
-  mounted() {
+  created() {
     this.getData();
   },
   methods: {
@@ -81,6 +57,14 @@ export default {
       }
       return this.detail;
     }
+  },
+  head() {
+    const title = this.detail && this.detail.title;
+    const description = this.detail && this.detail.title;
+    const image = this.detail && this.detail.image;
+    return {
+      title: title
+    };
   }
 };
 </script>

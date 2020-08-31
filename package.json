@@ -11,7 +11,8 @@
   "dependencies": {
     "axios": "^0.20.0",
     "nepali-date-converter": "^3.3.0",
-    "nuxt": "^2.14.0"
+    "nuxt": "^2.14.0",
+    "vue-meta": "^2.4.0"
   },
   "devDependencies": {}
 }
