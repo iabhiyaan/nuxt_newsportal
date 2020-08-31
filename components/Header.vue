@@ -58,7 +58,7 @@
                 <nuxt-link to="/prabhas">प्रवास</nuxt-link>
               </li>
               <li>
-                <nuxt-link to="/tourism">पर्यटन</nuxt-link>
+                <nuxt-link to="/tourisim">पर्यटन</nuxt-link>
               </li>
               <li>
                 <nuxt-link to="#">
