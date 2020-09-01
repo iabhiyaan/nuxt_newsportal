@@ -14,7 +14,7 @@
         <div class="col-lg-9 col-md-9 col-12" v-else>
           <div class="list-wrapper" v-for="post in getPosts" :key="post.id">
             <nuxt-link :to="`/post/${post.slug}`" class="list-image all-news-image">
-              <img :src="`http://localhost:8000/images/main/${post.image}`" />
+              <img :src="`${url && url}/images/main/${post.image}`" />
             </nuxt-link>
             <div class="list-content">
               <nuxt-link :to="`/post/${post.slug}`" class="list-title-wrapp samachar-small-title">
@@ -50,16 +50,20 @@
 <script>
 import axios from "@/axios.settings.js";
 import NepaliDate from "nepali-date-converter";
+import { MAIN_URL } from "@/others.js";
+
 export default {
   data() {
     return {
       posts: null,
       category: null,
-      isLoading: true
+      isLoading: true,
+      url: null,
     };
   },
   created() {
     this.getData();
+    this.url = MAIN_URL;
   },
   methods: {
     getData() {
@@ -70,27 +74,27 @@ export default {
           this.posts = data.data;
           this.isLoading = false;
         })
-        .catch(err => console.log(err));
-    }
+        .catch((err) => console.log(err));
+    },
   },
   computed: {
     getPosts() {
       return (
         this.posts &&
-        this.posts.map(post => {
+        this.posts.map((post) => {
           let a = new NepaliDate(post.created_at);
           post.created_at = a.format("ddd DD, MMMM YYYY", "np");
           return post;
         })
       );
-    }
+    },
   },
   head() {
     const title = this.category && this.category.title;
     return {
-      title: title
+      title: title,
     };
-  }
+  },
 };
 </script>
 

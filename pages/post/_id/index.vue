@@ -7,7 +7,7 @@
         <div class="detail-image">
           <img
             class="w-100"
-            :src="`http://localhost:8000/images/main/${getProcessDetail && getProcessDetail.image}`"
+            :src="`${url && url}/images/main/${getProcessDetail && getProcessDetail.image}`"
             alt="detail-news"
           />
         </div>
@@ -26,16 +26,30 @@
 <script>
 import axios from "@/axios.settings.js";
 import NepaliDate from "nepali-date-converter";
+import { MAIN_URL } from "@/others.js";
+import { createSEOMeta } from "@/others.js";
+
 export default {
   data() {
     return {
       detail: null,
       isLoading: true,
-      dateLoader: true
+      dateLoader: true,
+      url: null,
     };
   },
-  created() {
+  head() {
+    const title = this.getProcessDetail && this.getProcessDetail.title;
+    const description = this.getProcessDetail && this.getProcessDetail.title;
+    const image = this.getProcessDetail && this.getProcessDetail.image;
+    return {
+      title: title,
+      meta: createSEOMeta({ description, title, image }),
+    };
+  },
+  mounted() {
     this.getData();
+    this.url = MAIN_URL;
   },
   methods: {
     getData() {
@@ -47,8 +61,8 @@ export default {
           this.detail.created_at = a.format("ddd DD, MMMM YYYY", "np");
           this.isLoading = false;
         })
-        .catch(err => console.log(err));
-    }
+        .catch((err) => console.log(err));
+    },
   },
   computed: {
     getProcessDetail() {
@@ -56,16 +70,8 @@ export default {
         return;
       }
       return this.detail;
-    }
+    },
   },
-  head() {
-    const title = this.detail && this.detail.title;
-    const description = this.detail && this.detail.title;
-    const image = this.detail && this.detail.image;
-    return {
-      title: title
-    };
-  }
 };
 </script>
 

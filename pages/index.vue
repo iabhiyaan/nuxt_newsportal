@@ -47,7 +47,7 @@
             :key="samajPost.id"
           >
             <nuxt-link :to="`/post/${samajPost.slug}`" class="samachar-wrapper all-news-image">
-              <img :src="`http://localhost:8000/images/medium/${samajPost.image}`" alt="samachar" />
+              <img :src="`${url && url}/images/medium/${samajPost.image}`" alt="samachar" />
               <div class="title-medium samachar-title">
                 <h2>{{ samajPost.title }}</h2>
                 <span class="date">{{samajPost.created_at}}</span>
@@ -96,17 +96,20 @@
 <script>
 import axios from "@/axios.settings.js";
 import NepaliDate from "nepali-date-converter";
+import { MAIN_URL } from "@/others.js";
 
 export default {
   data() {
     return {
       samaj: null,
       isLoading: true,
-      dateLoader: true
+      dateLoader: true,
+      url: null,
     };
   },
   mounted() {
     this.getData();
+    this.url = MAIN_URL;
   },
   methods: {
     getData() {
@@ -116,8 +119,8 @@ export default {
           this.samaj = data.samaj;
           this.isLoading = false;
         })
-        .catch(err => console.log(err));
-    }
+        .catch((err) => console.log(err));
+    },
   },
   computed: {
     samajPosts() {
@@ -127,7 +130,7 @@ export default {
       return (
         this.samaj &&
         this.samajPosts &&
-        this.samajPosts.slice(0, 2).map(post => {
+        this.samajPosts.slice(0, 2).map((post) => {
           let a = new NepaliDate(post.created_at);
           post.created_at = a.format("ddd DD, MMMM YYYY", "np");
           return post;
@@ -138,14 +141,14 @@ export default {
       return (
         this.samaj &&
         this.samajPosts &&
-        this.samajPosts.slice(2, 6).map(post => {
+        this.samajPosts.slice(2, 6).map((post) => {
           let a = new NepaliDate(post.created_at);
           post.created_at = a.format("ddd DD, MMMM YYYY", "np");
           return post;
         })
       );
-    }
-  }
+    },
+  },
 };
 </script>
 
