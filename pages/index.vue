@@ -13,7 +13,7 @@
       <div class="container">
         <div class="title-wrapper">
           <h2>समाज</h2>
-          <a href="#" class="all-btn">
+          <nuxt-link to="/samaj" class="all-btn">
             सबै हेर्नुहोस
             <span class="view-arrow">
               <svg
@@ -32,7 +32,7 @@
                 <polyline points="12 5 19 12 12 19" />
               </svg>
             </span>
-          </a>
+          </nuxt-link>
         </div>
         <div class="row">
           <div class="col-6" v-if="isLoading">
@@ -149,20 +149,13 @@ export default {
       );
     },
   },
+  head() {
+    return {
+      title: "Mulki Khabar Online Newsportal",
+    };
+  },
 };
 </script>
 
 <style>
-.loader {
-  height: 400px;
-  width: 100%;
-  background: #cccccc7a;
-  margin-bottom: 30px;
-}
-.date_loader {
-  height: 20px;
-  width: 30%;
-  background: #cccccc7a;
-  margin-bottom: 30px;
-}
 </style>

@@ -14,9 +14,9 @@
                   <img src="~/assets/images/logo.png" />
                 </nuxt-link>
                 <ul>
-                  <li>Executive by nepaluk news</li>
+                  <li>Executive by Mulukikhabar</li>
                   <li>Cheif-Editor : Ramesh Dhakal</li>
-                  <li>Editor : Db Ghale</li>
+                  <li>Editor : Abhiyan Shrestha</li>
                 </ul>
                 <ul class="footer-social-media">
                   <li>
@@ -59,19 +59,28 @@
                 <h3>Quick Link</h3>
                 <ul>
                   <li>
-                    <a href="#">राजनीति</a>
+                    <nuxt-link to="/samaj">समाज</nuxt-link>
                   </li>
                   <li>
-                    <a href="#">खेलकुद</a>
+                    <nuxt-link to="/politics">राजनीति</nuxt-link>
                   </li>
                   <li>
-                    <a href="#">विजनेश</a>
+                    <nuxt-link to="/economics">अर्थ</nuxt-link>
                   </li>
                   <li>
-                    <a href="#">मनोरन्जन</a>
+                    <nuxt-link to="/thoughts">विचार</nuxt-link>
                   </li>
                   <li>
-                    <a href="#">भीडियो</a>
+                    <nuxt-link to="/world">विश्व</nuxt-link>
+                  </li>
+                  <li>
+                    <nuxt-link to="/prabhas">प्रवास</nuxt-link>
+                  </li>
+                  <li>
+                    <nuxt-link to="/tourisim">पर्यटन</nuxt-link>
+                  </li>
+                  <li>
+                    <nuxt-link to="/education">शिक्षा</nuxt-link>
                   </li>
                 </ul>
               </div>
@@ -85,7 +94,7 @@
             Copyright © 2020 Mulukikhabar. All Rights Reserved. Website by
             <a
               href="#"
-            >Web House Nepal</a>
+            >Abhiyan Shrestha</a>
           </p>
         </div>
       </div>
@@ -99,7 +108,7 @@ import axios from "@/axios.settings.js";
 export default {
   data() {
     return {
-      dashboard: null
+      dashboard: null,
     };
   },
   mounted() {
@@ -109,12 +118,12 @@ export default {
     getDashboard() {
       axios
         .get()
-        .then(res => {
+        .then((res) => {
           this.dashboard = res.data.dashboard;
         })
-        .catch(err => console.log(err));
-    }
-  }
+        .catch((err) => console.log(err));
+    },
+  },
 };
 </script>
 

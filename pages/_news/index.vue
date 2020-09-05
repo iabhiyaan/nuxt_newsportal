@@ -3,7 +3,7 @@
     <div class="container">
       <div class="title-wrapper list-title">
         <div class="small__loader" v-if="isLoading"></div>
-        <h2 v-else>{{category && category.title}}</h2>
+        <h2 v-else>{{ category && category.title }}</h2>
       </div>
       <div class="row">
         <div class="col-lg-9 col-md-9 col-12" v-if="isLoading">
@@ -18,10 +18,10 @@
             </nuxt-link>
             <div class="list-content">
               <nuxt-link :to="`/post/${post.slug}`" class="list-title-wrapp samachar-small-title">
-                <h2>{{post.title}}</h2>
+                <h2>{{ post.title }}</h2>
               </nuxt-link>
-              <span class="date">{{post.created_at}}</span>
-              <p>{{post.short_description}}</p>
+              <span class="date">{{ post.created_at }}</span>
+              <p>{{ post.short_description }}</p>
             </div>
           </div>
         </div>
@@ -71,7 +71,7 @@ export default {
         .get(`/${this.$route.params.news}`)
         .then(({ data }) => {
           this.category = data.category;
-          this.posts = data.data;
+          this.posts = data.category.posts;
           this.isLoading = false;
         })
         .catch((err) => console.log(err));
@@ -99,17 +99,4 @@ export default {
 </script>
 
 <style>
-.loading {
-  height: 200px;
-  width: 100%;
-  background: #cccccc7a;
-  margin-bottom: 30px;
-}
-
-.small__loader {
-  width: 60px;
-  height: 40px;
-  font-weight: 600;
-  background: #cccccc7a;
-}
 </style>

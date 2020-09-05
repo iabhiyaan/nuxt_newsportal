@@ -1,4 +1,4 @@
-export const MAIN_URL = "http://localhost:8000";
+export const MAIN_URL = "http://sajha.webhouse.com.np";
 
 export function createSEOMeta({ description, title, image }) {
   const fullImage__Path = `${MAIN_URL}/images/main/${image}`;
