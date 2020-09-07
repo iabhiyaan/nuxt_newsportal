@@ -267,9 +267,10 @@ body::before {
 
 .title-with-image-title h1,
 .top-news-with-title h1 {
-  font-size: 40px;
+  font-size: 65px;
   transition: 500ms ease all;
-  font-weight: 600;
+  font-weight: 700;
+  line-height: 128%;
 }
 
 .top-news-with-title:hover h1 {
@@ -757,13 +758,13 @@ a.list-image img {
 /* detail page starts */
 
 .detail-wrapper h1 {
-  font-size: 35px;
-  font-weight: 600;
-  line-height: 50px;
   max-width: 900px;
   margin: 0 auto;
   margin-bottom: 15px;
   text-align: justify;
+  font-size: 45px;
+  font-weight: 700;
+  line-height: 128%;
 }
 
 .detail-content p,
